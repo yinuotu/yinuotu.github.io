@@ -1,63 +1,47 @@
 <ul class="card-text font-weight-light list-group list-group-flush">
   {% for content in entry.contents %}
     <li class="list-group-item">
-      <div class="row">
-        {% if content.year %}
-          <div class="col-xs-2 cl-sm-2 col-md-2 text-center" style="width: 75px">
-            <table class="table-cv">
-              <tbody>
-                <tr>
-                  <td>
-                    <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px">
-                      {{- content.year -}}
-                    </span>
-                  </td>
-                </tr>
-                {% if content.location %}
-                  <tr>
-                    <td>
-                      <p class="location">
-                        <i class="fa-solid fa-location-dot iconlocation"></i>
-                        {{ content.location }}
-                      </p>
-                    </td>
-                  </tr>
-                {% endif %}
-              </tbody>
-            </table>
-          </div>
-        {% endif %}
-        <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
-          {% if content.title %}
-            <h6 class="title font-weight-bold ml-1 ml-md-4">{{ content.title }}</h6>
+      <div class="d-flex">
+        <div class="pr-3 pt-1 text-center d-flex align-items-start justify-content-center" style="width: 56px; min-width: 56px;">
+          {% if content.icon %}
+            <img src="{{ content.icon | relative_url }}" alt="{{ content.institution }} logo" class="cv-icon-logo" style="max-width: 48px; max-height: 48px;">
+          {% elsif content.icon_text %}
+            <div class="cv-icon-badge d-inline-flex align-items-center justify-content-center rounded-circle bg-light border" style="width: 48px; height: 48px; font-size: 0.75rem; font-weight: 700;">
+              {{ content.icon_text }}
+            </div>
+          {% else %}
+            <i class="fa-solid fa-building-columns iconinstitution"></i>
           {% endif %}
-          {% if content.department or content.institution %}
-            <table class="table-cv ml-1 ml-md-4 institution">
-              <tbody>
-                {% if content.institution %}
-                  <tr>
-                    <td style="vertical-align: top; text-align: center" class="institution">
-                      <i class="fa-solid fa-building-columns iconinstitution"></i>
-                    </td>
-                    <td class="institution">{{ content.institution }}</td>
-                  </tr>
-                {% endif %}
-                {% if content.department %}
-                  <tr>
-                    <td style="vertical-align: top; text-align: center" class="department">
-                      <i class="fa-regular fa-circle-dot icondepartment"></i>
-                    </td>
-                    <td class="department">{{ content.department }}</td>
-                  </tr>
-                {% endif %}
-              </tbody>
-            </table>
+        </div>
+        <div class="flex-grow-1">
+          <div class="d-flex justify-content-between align-items-start">
+            <div>
+              {% if content.title %}
+                <h6 class="title font-weight-bold mb-1">{{ content.title }}</h6>
+              {% endif %}
+              {% if content.department or content.institution %}
+                <div class="institution text-muted">
+                  {% if content.department %}{{ content.department }}{% endif %}
+                  {% if content.department and content.institution %} · {% endif %}
+                  {% if content.institution %}{{ content.institution }}{% endif %}
+                </div>
+              {% endif %}
+            </div>
+            {% if content.year %}
+              <div class="text-muted small ml-3 text-right">{{ content.year }}</div>
+            {% endif %}
+          </div>
+          {% if content.location %}
+            <div class="location text-muted mt-1">
+              <i class="fa-solid fa-location-dot iconlocation"></i>
+              {{ content.location }}
+            </div>
           {% endif %}
           {% if content.maindescription %}
-            <div class="ml-1 ml-md-4">{{ content.maindescription }}</div>
+            <div class="mt-1">{{ content.maindescription }}</div>
           {% endif %}
           {% if content.description %}
-            <ul class="items">
+            <ul class="items mt-2">
               {% for item in content.description %}
                 <li>
                   {% if item.contents %}
@@ -77,7 +61,7 @@
             </ul>
           {% endif %}
           {% if content.items %}
-            <ul class="items">
+            <ul class="items mt-2">
               {% for item in content.items %}
                 <li>
                   {% if item.contents %}
@@ -97,7 +81,7 @@
             </ul>
           {% endif %}
           {% if content.linkitems %}
-            <div class="container-links ml-1 ml-md-4">
+            <div class="container-links mt-2">
               {% for item in content.linkitems %}
                 {% if item.link %}
                   <div class="container-link-button">

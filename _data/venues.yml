@@ -6,4 +6,19 @@
   url: https://journals.aps.org/
 
 "Vision":
-  color: "#009f36"
+  color: "#A7C7E7"
+
+CellInvest:
+  color: "#A7C7E7"   
+
+Phenomics:
+  color: "#A7C7E7"   
+
+CCDCW:
+  color: "#A7C7E7"  
+
+AdvMater:
+  color: "#A7C7E7"   
+
+AdvOptMater:
+  color: "#A7C7E7"   #

@@ -11,22 +11,20 @@
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
-      description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
-      description:
-        - Description 1.
-        - Description 2.
+    - title: Johns Hopkins University
+      institution: ScM in Biostatistics (GPA 4.0/4.0)
+      year: Aug. 2024 -- May 2026
+      icon: /assets/img/logos/jhu.png
+    - title: Zhejiang University (ZJU)
+      institution: BE in Chemical Engineering and Technology (Pharmaceutics) (GPA 3.93/4.0)
+      year: Sep. 2020 -- Jun. 2024
+      icon: /assets/img/logos/zju.png
+    - title: Yale Summer International Program in Environmental Health Sciences
+      year: Jul. 2023
+      icon: /assets/img/logos/yale.png
+    - title: MIT-ZJU International Collaborative Research Training Program
+      year: Jun. 2022 -- Sep. 2022
+      icon: /assets/img/logos/mit.png
 
 - title: Experience
   type: time_table
